@@ -1,0 +1,23 @@
+name: Ordo Tournament
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-ordo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget
+          # cài ordo và ordoprep nếu có package hoặc build từ source
+          # ví dụ nếu ông có script build thì thêm vào đây
+
+      - name: Run tournament ordo
+        run: |
+          chmod +x script.sh
+          ./script.sh <TOURNAMENT_ID>
